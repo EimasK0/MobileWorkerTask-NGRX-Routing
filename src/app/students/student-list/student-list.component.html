@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-sm-6">
+    <h2>{{title}}</h2>
+  </div>
+  <div class="col-sm-6 align-bottom">
+    <button class="btn btn-primary pull-right" (click)="openDialog()">Bugged Dialog</button>
+    <button class="btn btn-primary pull-right" routerLink="/students/create">Prideti pažymį</button>
+  </div>
+</div>
+<table class="table table-striped" style="text-align: left">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Vardas Pavardė</th>
+      <th>Pažymys</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students | async">
+      <td>
+        <div class="btn-group">
+          <button routerLink="/students/detail/{{student.id}}" class="btn btn-secondary btn-sm">
+            <i class="fa fa-search"></i>
+          </button>
+          <button routerLink="/students/edit/{{student.id}}" class="btn btn-info btn-sm">
+            <i class="fa fa-pencil-square-o"></i>
+          </button>
+          <button (click)="delete(student.id)" class="btn btn-danger btn-sm">
+            <i class="fa fa-times"></i>
+          </button>
+        </div>
+      </td>
+      <td>{{student.name}}</td>
+      <td>{{student.mark}}</td>
+    </tr>
+  </tbody>
+</table>
+<student-mano-component></student-mano-component>

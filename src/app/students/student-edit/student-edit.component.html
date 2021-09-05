@@ -1,0 +1,44 @@
+<div *ngIf="student">
+  <div>
+    <div class="row">
+      <div class="col-sm-3">
+      </div>
+      <div class="col-sm-9">
+        <form #frmStudent="ngForm" id="frmStudent" novalidate (ngSubmit)="onSaveStudent()" novalidate>
+          <div class="row">
+            <label class="control-label col-sm-3" for="txtName">Vardas Pavardė:</label>
+            <div class="col-sm-5">
+              <input id="txtName" type="text" class="form-control" [(ngModel)]="student.name" title="Name"
+                placeholder="Enter a name ..." [ngModelOptions]="{standalone: true}" />
+            </div>
+          </div>
+          <div class="row">
+            <label class="control-label col-sm-3" for="txtDate">Data:</label>
+            <div class="col-sm-5">
+              <input id="txtDate" type="date" class="form-control" [(ngModel)]="student.markDate" title="Release date"
+                placeholder="yyyy-mm-dd" [ngModelOptions]="{standalone: true}" />
+            </div>
+          </div>
+          <div class="row">
+            <label class="control-label col-sm-3" for="txtDate">Pažymys:</label>
+            <div class="col-sm-5">
+              <textarea id="txtName" rows="1" class="form-control" [(ngModel)]="student.mark" title="Mark"
+                placeholder="Įveskite pažymį" [ngModelOptions]="{standalone: true}"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Save student</button>
+            <div class="btn-group">
+              <button type="button" (click)="onBack()" class="btn btn-secondary btn-sm">
+                <i class="fa fa-arrow-left"></i> Back
+              </button>
+              <button type="button" (click)="delete(student.id)" class="btn btn-danger btn-sm">
+                <i class="fa fa-times"></i> Delete
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

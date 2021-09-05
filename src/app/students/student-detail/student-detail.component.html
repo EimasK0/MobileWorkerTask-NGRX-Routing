@@ -1,0 +1,27 @@
+<div *ngIf="student | async; let student;">
+  <h2>{{title}}</h2>
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="row">
+        <label class="col-sm-2">Vardas Pavardė:</label>
+        <div class="col-sm-9">{{student.name}}</div>
+      </div>
+      <div class="row">
+        <label class="col-sm-2">Data: </label>
+        <div class="col-sm-9">{{student.markDate}}</div>
+      </div>
+      <div class="row">
+        <label class="col-sm-2">Pažymys: </label>
+        <div class="col-sm-9">{{student.mark}}</div>
+      </div>
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary btn-sm" routerLink="/students">
+          <i class="fa fa-arrow-left"></i> Back
+        </button>
+        <button type="button" (click)="delete(student.id)" class="btn btn-danger btn-sm">
+          <i class="fa fa-times"></i> Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
